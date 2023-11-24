@@ -23,9 +23,9 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    categories: { type: Array },
-    size: { type: Array },
-    color: { type: Array },
+    categories: {
+      type: Array,
+    },
   },
   { timestamps: true }
 );
