@@ -4,12 +4,7 @@ import Anuncio from "../components/Anuncio";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import HeadsetProduct from "../assets/images/products-images/headset_xbox.jpg";
-import {
-  Add,
-  AddShoppingCartOutlined,
-  Remove,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
+import { Add, AddShoppingCartOutlined, Remove } from "@mui/icons-material";
 
 const Container = styled.div``;
 
