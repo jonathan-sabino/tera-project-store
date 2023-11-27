@@ -7,8 +7,8 @@ import Slider from "../components/Slider";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
-const TitleSection = styled.h1`
-  font-weight: bold;
+const Title = styled.h1`
+  font-weight: 300;
   text-align: center;
 `;
 
@@ -19,7 +19,7 @@ const Home = () => {
       <Navbar />
       <Slider />
       <Categories />
-      <TitleSection>Produtos em Destaque</TitleSection>
+      <Title>Produtos em Destaque</Title>
       <Products />
       <Newsletter />
       <Footer />
