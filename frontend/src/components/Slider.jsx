@@ -3,12 +3,14 @@ import styled from "styled-components";
 import NavigateBeforeOutlinedIcon from "@mui/icons-material/NavigateBeforeOutlined";
 import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
 import { sliderItems } from "../data.js";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
-  width: 100vw; //100vw?
+  width: auto; //100vw?
   display: flex;
   position: relative;
   overflow: hidden;
+  ${mobile({ display: "none" })}
 `;
 
 const Arrow = styled.div`

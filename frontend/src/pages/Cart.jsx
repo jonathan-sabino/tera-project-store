@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import HeadsetProduct from "../assets/images/products-images/headset_xbox.jpg";
 import FunkoDexterProduct from "../assets/images/products-images/funko_dexter.jpg";
 import { Add, Remove } from "@mui/icons-material";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 
@@ -15,6 +16,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-weight: 300;
   text-align: center;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Top = styled.div`
@@ -34,7 +36,9 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+`;
 
 const TopText = styled.span`
   text-decoration: underline;
@@ -45,6 +49,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Info = styled.div`
@@ -54,6 +59,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ProductDetail = styled.div`
@@ -102,11 +108,13 @@ const ProductQtd = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ margin: "5px 15px" })}
 `;
 
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
+  ${mobile({ marginBottom: "20px" })}
 `;
 
 const Hr = styled.hr`
@@ -127,6 +135,7 @@ const Summary = styled.div`
 const SummaryTitle = styled.h1`
   font-weight: 200;
 `;
+
 const SummaryItem = styled.div`
   margin: 30px 0px;
   display: flex;
@@ -134,8 +143,11 @@ const SummaryItem = styled.div`
   font-weight: ${(props) => props.type === "total" && "500"};
   font-size: ${(props) => props.type === "total" && "24px"};
 `;
+
 const SummaryItemText = styled.span``;
+
 const SummaryItemPrice = styled.span``;
+
 const Button = styled.button`
   width: 100%;
   padding: 10px;

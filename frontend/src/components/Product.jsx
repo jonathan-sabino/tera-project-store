@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FavoriteBorderOutlined, SearchOutlined } from "@mui/icons-material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import { mobile } from "../responsive";
 
 const Info = styled.div`
   opacity: 0;
@@ -29,6 +30,7 @@ const Container = styled.div`
   background-color: #d2e8f7;
   position: relative;
   border-radius: 20px;
+  ${mobile({ minWidth: "330px", minHeight: "330px" })}
 
   &:hover ${Info} {
     opacity: 1;
@@ -41,11 +43,13 @@ const Circle = styled.div`
   border-radius: 50%;
   background-color: white;
   position: absolute;
+  ${mobile({ width: "300px", height: "300px" })}
 `;
 
 const Image = styled.img`
   max-width: 200px;
   z-index: 2;
+  ${mobile({ maxWidth: "180px" })}
 `;
 
 const Icon = styled.div`

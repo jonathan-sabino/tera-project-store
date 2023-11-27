@@ -5,12 +5,14 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import HeadsetProduct from "../assets/images/products-images/headset_xbox.jpg";
 import { Add, AddShoppingCartOutlined, Remove } from "@mui/icons-material";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -18,12 +20,23 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 60%;
+  min-width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  ${mobile({
+    height: "350px",
+    width: "auto",
+    display: "block",
+    minWidth: "auto",
+  })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -41,9 +54,11 @@ const Price = styled.span`
 
 const AddContainer = styled.div`
   width: 50%;
+  margin: 30px 0px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  gap: 50px;
+  ${mobile({ width: "100%", gap: "0px" })}
 `;
 
 const QtdContainer = styled.div`
