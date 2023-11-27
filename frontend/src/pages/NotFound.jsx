@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Background from "../assets/images/register_background.jpg";
 import { mobile } from "../responsive";
 import GameOver from "../assets/images/gameover_404.png";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -53,13 +54,15 @@ const Button = styled.button`
 `;
 
 const NotFound = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Wrapper>
         <Image src={GameOver} />
         <Title>ERRO 404</Title>
         <Desc>Página não encontrada</Desc>
-        <Button>HOME</Button>
+        <Button onClick={() => navigate("/")}>HOME</Button>
       </Wrapper>
     </Container>
   );
