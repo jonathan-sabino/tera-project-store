@@ -3,6 +3,7 @@ import { Search } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -69,6 +70,8 @@ const MenuItem = styled.div`
 `;
 
 function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Wrapper>
@@ -80,12 +83,12 @@ function Navbar() {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>PlayNook.</Logo>
+          <Logo onClick={() => navigate("/")}>PlayNook.</Logo>
         </Center>
         <Right>
-          <MenuItem>LOGIN</MenuItem>
-          <MenuItem>CADASTRO</MenuItem>
-          <MenuItem>
+          <MenuItem onClick={() => navigate("/login")}>LOGIN</MenuItem>
+          <MenuItem onClick={() => navigate("/register")}>CADASTRO</MenuItem>
+          <MenuItem onClick={() => navigate("/:userId/cart")}>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
