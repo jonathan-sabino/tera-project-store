@@ -6,6 +6,7 @@ import HeadsetProduct from "../assets/images/products-images/headset_xbox.jpg";
 import FunkoDexterProduct from "../assets/images/products-images/funko_dexter.jpg";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -157,6 +158,8 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Anuncio />
@@ -164,7 +167,9 @@ const Cart = () => {
       <Wrapper>
         <Title>Seu Carrinho</Title>
         <Top>
-          <TopButton>CONTINUAR COMPRANDO</TopButton>
+          <TopButton onClick={() => navigate("/products")}>
+            CONTINUAR COMPRANDO
+          </TopButton>
           <TopTexts>
             <TopText>Itens no Carrinho(2)</TopText>
             <TopText>Favoritos</TopText>

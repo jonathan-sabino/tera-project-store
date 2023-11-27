@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -88,10 +89,12 @@ const Payment = styled.img`
 `;
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Left>
-        <Logo>PlayNook.</Logo>
+        <Logo onClick={() => navigate("/")}>PlayNook.</Logo>
         <Desc>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
           iure commodi laborum error officiis, beatae a dolore, vero dolorum
@@ -116,15 +119,23 @@ const Footer = () => {
       <Center>
         <Title>Links Úteis</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Carrinho</ListItem>
-          <ListItem>Playstation</ListItem>
-          <ListItem>Xbox</ListItem>
-          <ListItem>Nintendo</ListItem>
-          <ListItem>Acessórios</ListItem>
-          <ListItem>Colecionáveis</ListItem>
-          <ListItem>Favoritos</ListItem>
-          <ListItem>Meus Pedidos</ListItem>
+          <ListItem onClick={() => navigate("/")}>Home</ListItem>
+          <ListItem onClick={() => navigate("/:userId/cart")}>
+            Carrinho
+          </ListItem>
+          <ListItem onClick={() => navigate("/products")}>Playstation</ListItem>
+          <ListItem onClick={() => navigate("/products")}>Xbox</ListItem>
+          <ListItem onClick={() => navigate("/products")}>Nintendo</ListItem>
+          <ListItem onClick={() => navigate("/products")}>Acessórios</ListItem>
+          <ListItem onClick={() => navigate("/products")}>
+            Colecionáveis
+          </ListItem>
+          <ListItem onClick={() => navigate("/:userId/cart")}>
+            Favoritos
+          </ListItem>
+          <ListItem onClick={() => navigate("/:userId/cart")}>
+            Meus Pedidos
+          </ListItem>
           <ListItem>Termos</ListItem>
         </List>
       </Center>
