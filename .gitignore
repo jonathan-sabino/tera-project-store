@@ -17,6 +17,7 @@
 
 # local env files
 */.env
+*/notes.txt
 
 # Vite cache
 .cache
