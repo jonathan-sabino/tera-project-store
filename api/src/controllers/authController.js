@@ -34,7 +34,10 @@ const login = async (req, res) => {
     }
 
     // gerar token com jwt
-    const token = jwt.sign({ fullname: user.fullname }, SECRET);
+    const token = jwt.sign(
+      { fullname: user.fullname, isAdmin: user.isAdmin },
+      SECRET
+    );
 
     res.status(200).json({
       statusCode: 200,
@@ -75,7 +78,39 @@ const tokenVerify = (req, res, next) => {
   }
 };
 
+const tokenVerifyAdmin = (req, res, next) => {
+  const tokenHeader = req.headers["authorization"];
+  const token = tokenHeader && tokenHeader.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({
+      statusCode: 401,
+      message: "Não autorizado!",
+    });
+  }
+
+  try {
+    jwt.verify(token, SECRET);
+
+    if (token.isAdmin) {
+      next();
+    } else {
+      return res.status(401).json({
+        statusCode: 401,
+        message: "Não autorizado!",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      statusCode: 500,
+      message: "Token inválido!",
+    });
+  }
+};
+
 export default {
   login,
   tokenVerify,
+  tokenVerifyAdmin,
 };
