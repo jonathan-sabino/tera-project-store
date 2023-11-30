@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Anuncio from "../components/Anuncio";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-import HeadsetProduct from "../assets/images/products-images/headset_xbox.jpg";
 import { Add, AddShoppingCartOutlined, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useEffect, useState } from "react";
 
 const Container = styled.div``;
 
@@ -97,28 +97,31 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/products/6568d1dcd0d9a8acdca6035d`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProduct(data);
+        console.log(product);
+      })
+      .catch((error) => console.error(error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container>
       <Anuncio />
       <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src={HeadsetProduct} />
+          <Image src={`.${product.image}`} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Headset XBOX Wireless - TLL-00001</Title>
-          <Desc>
-            Jogue com o som alto e claro com o fone de ouvido sem fio XBOX,
-            envolva-se com tecnologias de som espacial, incluindo Windows Sonic,
-            Dolby Atmos e DTS Headphone: X. O auto-mute e o isolamento de voz
-            reduzem o ruído de fundo e permitem uma comunicação clara. O design
-            flexível e leve com uma faixa de cabeça ajustável proporciona uma
-            experiência mais confortável durante sessões de jogo prolongadas,
-            enquanto os botões giratórios do fone de ouvido fornecem uma maneira
-            rápida e intuitiva de ajustar o volume e o equilíbrio do jogo /
-            chat.
-          </Desc>
-          <Price>R$ 1.099,99</Price>
+          <Title>{product.title}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>R$ {product.price}</Price>
           <AddContainer>
             <QtdContainer>
               <Remove style={{ cursor: "pointer" }} />
