@@ -3,6 +3,7 @@ import { FavoriteBorderOutlined, SearchOutlined } from "@mui/icons-material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
+import ImageImportada from "../assets/images/products-images/headset_xbox.jpg";
 
 const Info = styled.div`
   opacity: 0;
@@ -74,10 +75,12 @@ const Icon = styled.div`
 const Product = ({ item }) => {
   const navigate = useNavigate();
 
+  console.log(item);
+
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+      <Image src={`..${item}`} />
       <Info>
         <Icon>
           <AddShoppingCartOutlinedIcon />
