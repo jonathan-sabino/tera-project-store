@@ -10,6 +10,17 @@ const getAll = async (req, res) => {
   }
 };
 
+const getById = async (req, res) => {
+  const productId = req.params.id;
+
+  try {
+    const Product = await ProductSchema.findById(productId).exec();
+    res.status(200).send(Product);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
 // CREATE
 const createProduct = async (req, res) => {
   try {
@@ -83,6 +94,7 @@ const deleteProduct = async (req, res) => {
 
 export default {
   getAll,
+  getById,
   createProduct,
   updateProduct,
   deleteProduct,

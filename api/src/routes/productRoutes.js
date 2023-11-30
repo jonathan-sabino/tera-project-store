@@ -5,6 +5,7 @@ import controllers from "../controllers/productController.js";
 import authController from "../controllers/authController.js";
 
 router.get("/", controllers.getAll);
+router.get("/:id", controllers.getById);
 router.post("/", authController.tokenVerifyAdmin, controllers.createProduct);
 router.patch(
   "/:id",
