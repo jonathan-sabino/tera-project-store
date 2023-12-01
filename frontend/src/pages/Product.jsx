@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { Add, AddShoppingCartOutlined, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -99,12 +100,13 @@ const Button = styled.button`
 const Product = () => {
   const [product, setProduct] = useState({});
 
+  let { productId } = useParams();
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/products/6568d1dcd0d9a8acdca6035d`)
+    fetch(`${import.meta.env.VITE_API_URL}/products/${productId}`)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
-        console.log(product);
       })
       .catch((error) => console.error(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,7 +118,7 @@ const Product = () => {
       <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src={`.${product.image}`} />
+          <Image src={`..${product.image}`} />
         </ImgContainer>
         <InfoContainer>
           <Title>{product.title}</Title>

@@ -11,8 +11,5 @@ const Private = ({ Item }) => {
 no app importar routes se tiver feito num arquivo a parte
 (dúvida: para fins de legibilidade, fazer routes em outro arquivo? )
 
-react.dotenv
-javascript api (https://www.youtube.com/watch?v=M1NCh19uvo0&t=1s)
-
 usar local storage para guardar o token na hora de acessar rotas privadas.
 

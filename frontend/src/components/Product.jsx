@@ -72,10 +72,9 @@ const Icon = styled.div`
   }
 `;
 
-const Product = ({ item }) => {
+// eslint-disable-next-line react/prop-types
+const Product = ({ item, paramId }) => {
   const navigate = useNavigate();
-
-  console.log(item);
 
   return (
     <Container>
@@ -86,7 +85,7 @@ const Product = ({ item }) => {
           <AddShoppingCartOutlinedIcon />
         </Icon>
         <Icon>
-          <SearchOutlined onClick={() => navigate("/product/:productId")} />
+          <SearchOutlined onClick={() => navigate(`/product/${paramId}`)} />
         </Icon>
         <Icon>
           <FavoriteBorderOutlined />

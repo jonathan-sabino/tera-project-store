@@ -92,12 +92,14 @@ const tokenVerifyAdmin = (req, res, next) => {
   try {
     jwt.verify(token, SECRET);
 
-    if (token.isAdmin) {
+    const tokenDecoded = jwt.decode(token);
+
+    if (tokenDecoded.isAdmin) {
       next();
     } else {
       return res.status(401).json({
         statusCode: 401,
-        message: "Não autorizado!",
+        message: "Usuário possui privilégios",
       });
     }
   } catch (error) {

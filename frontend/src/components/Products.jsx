@@ -24,7 +24,7 @@ const Products = () => {
   return (
     <Container>
       {products.map((item) => (
-        <Product item={item.image} key={item.id} />
+        <Product item={item.image} key={item._id} paramId={item._id} />
       ))}
     </Container>
   );
