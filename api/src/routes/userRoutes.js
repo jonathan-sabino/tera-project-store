@@ -9,8 +9,7 @@ router.post("/", controllers.createUser);
 router.patch("/:id", authController.tokenVerify, controllers.updateUser);
 router.delete(
 	"/:id",
-	authController.tokenVerify,
-	authController.tokenVerifyAdmin,
+	authController.verifyTokenAndAuthorization,
 	controllers.deleteUser
 );
 
