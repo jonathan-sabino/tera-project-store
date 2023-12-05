@@ -13,39 +13,6 @@ Certifique-se de ter o Node.js e o MongoDB instalados em seu ambiente de desenvo
     npm start
 ```
 
-## Endpoints Disponíveis
-
--   **GET /api/games**: Retorna a lista de jogos disponíveis no e-commerce.
-
--   **GET /api/games/:id**: Retorna detalhes de um jogo específico com base no ID.
-
--   **POST /api/games**: Adiciona um novo jogo ao catálogo. (Autenticação necessária)
-
--   **PUT /api/games/:id**: Atualiza as informações de um jogo existente. (Autenticação necessária)
-
--   **DELETE /api/games/:id**: Remove um jogo do catálogo. (Autenticação necessária)
-
--   **POST /api/users/register**: Registra um novo usuário.
-
--   **POST /api/users/login**: Permite que um usuário faça login.
-
-## Autenticação
-
-Alguns endpoints exigem autenticação. Ao realizar uma requisição que requer autenticação, inclua o token de acesso no cabeçalho da solicitação:
-
-```bash
-    Authorization: Bearer SEU_TOKEN_AQUI
-```
-
-## Contribuição
-
-Se você deseja contribuir para o desenvolvimento desta API, siga estas etapas:
-
-1. Faça um fork do repositório.
-2. Crie uma nova branch para suas alterações: `git checkout -b feature/nova-feature`.
-3. Faça as alterações e commit.
-4. Envie um pull request para a branch principal.
-
 ## Licença
 
 Este projeto é licenciado sob a [MIT License](https://chat.openai.com/c/LICENSE.md).

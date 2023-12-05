@@ -35,7 +35,7 @@ const login = async (req, res) => {
 
 		// gerar token com jwt
 		const token = jwt.sign(
-			{ fullname: user.fullname, isAdmin: user.isAdmin },
+			{ id: user._id, fullname: user.fullname, isAdmin: user.isAdmin },
 			SECRET
 		);
 
@@ -67,8 +67,11 @@ const tokenVerify = (req, res, next) => {
 	}
 
 	try {
-		jwt.verify(token, SECRET);
-		next();
+		jwt.verify(token, SECRET, (err, user) => {
+			if (err) res.status(403).json("Token inválido!");
+			req.user = user;
+			next();
+		});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
@@ -112,7 +115,9 @@ const tokenVerifyAdmin = (req, res, next) => {
 };
 
 const verifyTokenAndAuthorization = (req, res, next) => {
-	verifyToken(req, res, () => {
+	tokenVerify(req, res, () => {
+		console.log(req.user.id);
+		console.log(req.params.id);
 		if (req.user.id === req.params.id || req.user.isAdmin) {
 			next();
 		} else {
