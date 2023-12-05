@@ -114,11 +114,10 @@ const tokenVerifyAdmin = (req, res, next) => {
 	}
 };
 
-const verifyTokenAndAuthorization = (req, res, next) => {
+const verifyTokenAndAuthorization = async (req, res, next) => {
+	const lead = await userSchema.findById(req.params.id);
 	tokenVerify(req, res, () => {
-		console.log(req.user.id);
-		console.log(req.params.id);
-		if (req.user.id === req.params.id || req.user.isAdmin) {
+		if (lead._id == req.params.id || req.user.isAdmin) {
 			next();
 		} else {
 			return res.status(403).json({
