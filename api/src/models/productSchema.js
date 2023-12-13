@@ -23,6 +23,10 @@ const productSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		inStock: {
+			type: String,
+			required: true,
+		},
 		categories: {
 			type: Array,
 		},
